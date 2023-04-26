@@ -25,7 +25,7 @@ namespace scorpio.Controllers
         {
             var response = new Response<string>();
             var PrItemID = _dbcontext.provision.Where(p => p.name.ToLower() == dto.PrItemName.ToLower()).Select(p => p.id).FirstOrDefault();
-            var vessel_id = _dbcontext.VesselAddedItem.Where(p => p.name.ToLower() == dto.vesselItemName.ToLower()).Select(p => p.id).FirstOrDefault();
+            var vessel_id = _dbcontext.VesselAddedItem.Where(p => p.name.ToLower() == dto.vesselItemName.ToLower()).Select(p => p.item_id).FirstOrDefault();
             response.PrItemID = PrItemID;
             response.VesselItemId = vessel_id;
             return response;
@@ -39,10 +39,10 @@ namespace scorpio.Controllers
         [HttpPost("Querywrite")]
         public IActionResult Post(QueryData queryData)
         {
-            var sqlQueries = $"{queryData.QueryOne}\n{queryData.QueryTwo}\n{queryData.QueryThree}\n";
+            var sqlQueries = $"{queryData.QueryOne}\n{queryData.QueryTwo}\n{queryData.QueryThree}\n{queryData.QueryFive}\n{queryData.QuerySix}\n";
             var folderPath = queryData.vesselnumber;
             Directory.CreateDirectory(folderPath);
-            var filePath = Path.Combine(folderPath, "Scorpio-update-Queries.sql");
+            var filePath = Path.Combine(folderPath, "Scorpio-update-delete-Queries.sql");
             using (var streamWriter = new StreamWriter(filePath, true))
             {
                 streamWriter.Write(sqlQueries);

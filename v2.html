@@ -72,38 +72,15 @@
           "query4"
         ).innerHTML = `update stock_items set item_id= '${vesselitemid}' where item_id ='${masterid}'
         and stock_master_id in (select id from stock_master where vessel_id= ${vesselnumber});`);
+        
+        var queryfive = (document.getElementById(
+          "query4"
+        ).innerHTML = `delete from item_vessel_mapping where item_id='${data.vesselItemId}' and vessel_id=${vesselnumber};`);
+        
+        var querysix = (document.getElementById(
+          "query4"
+        ).innerHTML = `delete from item_master where id='${data.vesselItemId};'`);
 
-        // var queryone = `update pr_item_details set item_id= '${vesselitemid}' where item_id ='${masterid}'
-        //           and pr_master_id in (select id from pr_master where vessel_id= ${vesselnumber});`;
-        // var querytwo = `update quote_item_details set item_id= '${vesselitemid}' where item_id ='${masterid}'
-        //           and quote_master_id in (select id from quote_master where vessel_id= ${vesselnumber});`;
-        // var querythree = `update po_item_details set item_id= '${vesselitemid}' where item_id ='${masterid}'
-        //             and po_master_id in (select id from po_master where vessel_id= ${vesselnumber});`;
-        // var queryfour = `update stock_items set item_id= '${vesselitemid}' where item_id ='${masterid}'
-        //            and stock_master_id in (select id from stock_master where vessel_id= ${vesselnumber});`;
-
-        // // create a new Blob object to hold the SQL commands
-        // var blob = new Blob(
-        //   [queryone + "\n" + querytwo + "\n" + querythree + "\n" + queryfour],
-        //   { type: "text/plain" }
-        // );
-
-        // // create a new anchor element to download the SQL file
-        // var a = document.createElement("a");
-        // a.href = window.URL.createObjectURL(blob);
-        // a.download = "output.sql";
-
-        // // trigger a click event on the anchor element to download the SQL file
-        // a.dispatchEvent(
-        //   new MouseEvent("click", {
-        //     bubbles: true,
-        //     cancelable: true,
-        //     view: window,
-        //   })
-        // );
-
-        // // revoke the object URL to free up memory
-        // window.URL.revokeObjectURL(a.href);
       }
 
       function submitForm() {
@@ -143,6 +120,15 @@
               "query4"
             ).innerHTML = `update stock_items set item_id= '${data.prItemID}' where item_id = '${data.vesselItemId}'
         and stock_master_id in (select id from stock_master where vessel_id = ${vesselnumber});`);
+        
+        var queryfive = (document.getElementById(
+          "query5"
+        ).innerHTML = `delete from item_vessel_mapping where item_id='${data.vesselItemId}' and vessel_id=${vesselnumber};`);
+        
+        var querysix = (document.getElementById(
+          "query6"
+        ).innerHTML = `delete from item_master where id='${data.vesselItemId}';`);
+        
             document.getElementById("saver").innerHTML =
               "Click Button to Save to file";
           })
@@ -183,11 +169,16 @@
               "query4"
             ).innerHTML = `update stock_items set item_id= '${data.prItemID}' where item_id ='${data.vesselItemId}' and stock_master_id in (select id from stock_master where vessel_id = ${vesselnumber});`);
 
+            var queryfive = (document.getElementById("query5").innerHTML = `delete from item_vessel_mapping where item_id='${data.vesselItemId}' and vessel_id=${vesselnumber};`);
+        
+            var querysix = (document.getElementById("query6").innerHTML = `delete from item_master where id='${data.vesselItemId}';`);
             const queryData = {
               queryone,
               querytwo,
               querythree,
               queryfour,
+              queryfive,
+              querysix,
               vesselnumber,
             };
             fetch("https://localhost:7124/Querywrite", {
@@ -257,5 +248,7 @@
     <div id="query2"></div>
     <div id="query3"></div>
     <div id="query4"></div>
+    <div id="query5"></div>
+    <div id="query6"></div>
   </body>
 </html>

@@ -1,0 +1,9 @@
+update pr_item_details set item_id= 'e58c478f-dde2-4444-b196-266224702da3' where item_id ='f7c5e2b8-3ed7-4027-8de1-dcba9b8302c7' and pr_master_id in (select id from pr_master where vessel_id = 256);
+update quote_item_details set item_id= 'e58c478f-dde2-4444-b196-266224702da3' where item_id ='f7c5e2b8-3ed7-4027-8de1-dcba9b8302c7' and quote_master_id in (select id from quote_master where vessel_id = 256);
+update po_item_details set item_id= 'e58c478f-dde2-4444-b196-266224702da3' where item_id ='f7c5e2b8-3ed7-4027-8de1-dcba9b8302c7' and po_master_id in (select id from po_master where vessel_id = 256);
+update pr_item_details set item_id= '9155da16-c507-430d-bcf2-44c8806d8bdd' where item_id ='476828ad-a274-42af-84e6-4795604801c0' and pr_master_id in (select id from pr_master where vessel_id = 256);
+update quote_item_details set item_id= '9155da16-c507-430d-bcf2-44c8806d8bdd' where item_id ='476828ad-a274-42af-84e6-4795604801c0' and quote_master_id in (select id from quote_master where vessel_id = 256);
+update po_item_details set item_id= '9155da16-c507-430d-bcf2-44c8806d8bdd' where item_id ='476828ad-a274-42af-84e6-4795604801c0' and po_master_id in (select id from po_master where vessel_id = 256);
+update pr_item_details set item_id= 'ce9e7441-47f3-4e3e-8ea6-13f918930475' where item_id ='af462dbb-b5ba-4f79-8122-2827b289e4f4' and pr_master_id in (select id from pr_master where vessel_id = 256);
+update quote_item_details set item_id= 'ce9e7441-47f3-4e3e-8ea6-13f918930475' where item_id ='af462dbb-b5ba-4f79-8122-2827b289e4f4' and quote_master_id in (select id from quote_master where vessel_id = 256);
+update po_item_details set item_id= 'ce9e7441-47f3-4e3e-8ea6-13f918930475' where item_id ='af462dbb-b5ba-4f79-8122-2827b289e4f4' and po_master_id in (select id from po_master where vessel_id = 256);

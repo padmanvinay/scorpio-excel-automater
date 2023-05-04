@@ -14,5 +14,6 @@ namespace scorpio.Controllers
     public string QueryFive { get; set; }
     public string QuerySix { get; set; }
     public string vesselnumber { get; set; }
+    public string VesselItemId { get; set; }
     }
 }

@@ -170,8 +170,12 @@
             ).innerHTML = `update stock_items set item_id= '${data.prItemID}' where item_id ='${data.vesselItemId}' and stock_master_id in (select id from stock_master where vessel_id = ${vesselnumber});`);
 
             var queryfive = (document.getElementById("query5").innerHTML = `delete from item_vessel_mapping where item_id='${data.vesselItemId}' and vessel_id=${vesselnumber};`);
-        
+            
+            
+            
             var querysix = (document.getElementById("query6").innerHTML = `delete from item_master where id='${data.vesselItemId}';`);
+            debugger
+            var VesselItemId = data.vesselItemId;
             const queryData = {
               queryone,
               querytwo,
@@ -180,6 +184,7 @@
               queryfive,
               querysix,
               vesselnumber,
+              VesselItemId
             };
             fetch("https://localhost:7124/Querywrite", {
               method: "POST",
@@ -237,13 +242,6 @@
     <div id="pritemid"></div>
     <h1>------------------</h1>
 
-    <!-- <br /><br />
-    <label for="update">Update Query Gen</label>
-    <br /><br />
-    <input type="text" id="vesselid" placeholder="Vessel item Id" />
-    <input type="text" id="masterid" placeholder="Provision master item Id" />
-    <input type="text" id="vesselnumber" placeholder="Vessel Number" />
-    <button onclick="query()">Generate Query</button><br /><br /> -->
     <div id="query1"></div>
     <div id="query2"></div>
     <div id="query3"></div>

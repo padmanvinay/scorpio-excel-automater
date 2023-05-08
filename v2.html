@@ -164,6 +164,10 @@
             var querythree = (document.getElementById(
               "query3"
             ).innerHTML = `update po_item_details set item_id= '${data.prItemID}' where item_id ='${data.vesselItemId}' and po_master_id in (select id from po_master where vessel_id = ${vesselnumber});`);
+            
+            var querynew = (document.getElementById(
+              "querynew"
+            ).innerHTML = `update annual_contract_item_details set item_id= '${data.prItemID}' where item_id ='${data.vesselItemId}';`);
 
             var queryfour = (document.getElementById(
               "query4"
@@ -180,6 +184,7 @@
               queryone,
               querytwo,
               querythree,
+              querynew,
               queryfour,
               queryfive,
               querysix,
@@ -244,6 +249,8 @@
 
     <div id="query1"></div>
     <div id="query2"></div>
+    <div id="query3"></div>
+    <div id="querynew"></div>
     <div id="query3"></div>
     <div id="query4"></div>
     <div id="query5"></div>
